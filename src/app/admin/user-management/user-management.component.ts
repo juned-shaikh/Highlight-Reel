@@ -6,7 +6,7 @@ import { data } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth.service';
 import { ThreeDServiceService } from 'src/app/service/three-dservice.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-management',
@@ -20,13 +20,15 @@ import { Router } from '@angular/router';
 
 export class UserManagementComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator !: MatPaginator;
-  displayedColumns: string[] = ['sNo', 'firstname', 'lastname', 'email', 'phoneNumber',  'status', 'action'];
+  displayedColumns: string[] = ['sNo', 'firstname', 'lastname', 'email', 'phoneNumber','videosCount',  'status', 'action'];
   userData: any = [];
   dataSource = new MatTableDataSource(this.userData);
+  displayStyle: any = "none";
 
   noOfRecors = 0;
   selection: any = 0;
-  constructor(private toastr: ToastrService, private router: Router, private threeDService: ThreeDServiceService, public authService: AuthService) {
+  id: any;
+  constructor(private toastr: ToastrService, private router: Router, private route: ActivatedRoute, private threeDService: ThreeDServiceService, public authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -74,22 +76,69 @@ export class UserManagementComponent implements OnInit {
     this.paginator.firstPage();
     this.getAllUsers();
   }
-  changeStatus(id: any, event: any) {
-    this.authService.updateUserStatus(id, event.checked).subscribe(res => {
-      if (res.response == 200) {
-        this.toastr.success(res.message);
-      } else {
-        this.toastr.error(res.message);
-      }
-    }, error => {
+
+  changeUserStatus(e:any,id:any){
+    if(e.checked){
+      this.authService.changeUserStatus(id,'active').subscribe(
+        res =>{
+          if(res.message == 'User status updated successfully'){
+            this.toastr.success(res.message)
+          } else {
+            this.toastr.error(res.message)
+          }
+        },
+        err =>{
+          console.log(err,'errorr');
+          this.toastr.error('Error Occured.')
+        }
+      )
+    }
+    else {
+      this.authService.changeUserStatus(id,'inActive').subscribe(
+        res =>{
+          if(res.message == 'User status updated successfully'){
+            this.toastr.success(res.message)
+          } else {
+            this.toastr.error(res.message)
+          }
+        },
+        err =>{
+          this.toastr.error('Error Occured.')
+        }
+      )
+    }
+  }
+
+  onDelete()
+  {
+    this.id = this.ID;
+
+    this.threeDService.show();
+    this.authService.deleteUser(this.id).subscribe(res => {
       this.threeDService.hide();
-      this.toastr.error('Technical Issue.')
+      if (res.success == true) {
+        this.toastr.success(res.message);
+        // window.location.reload();
+        this.getAllUsers();
+        this.closePopup();
+      }
+      }, error => {
+        this.threeDService.hide();
       console.log(error);
-    })
+      });
+
   }
-  viewProfile(userId: any) {
-    localStorage.setItem("userId", userId)
-    sessionStorage.setItem("selection", JSON.stringify(this.selection));
-    this.router.navigate(['admin/user-profile']);
+
+  ID:any;
+
+  openPopup(_id:any) {
+    // this.router.navigate(['admin/user-management'], {queryParams:{id:_id}})
+    this.ID=_id;
+    this.displayStyle = "block";
   }
+
+  closePopup() {
+    this.displayStyle = "none";
+  }
+  
 }

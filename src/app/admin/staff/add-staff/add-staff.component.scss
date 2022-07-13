@@ -1,0 +1,46 @@
+h4.card-heading {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: #D85B00;
+    background: #fff;
+    // padding: 10px 15px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.mat-icon-button {
+    padding: 0;
+    min-width: 0;
+    width: 40px;
+    height: 40px;
+    background-color: antiquewhite;
+    flex-shrink: 0;
+    line-height: 40px;
+     border-radius: 0%; 
+}
+
+
+
+.mat-btn{
+
+background-color: #FCE101;
+border-color: #FCE101;
+color: #000;
+}
+
+.mat-btn:hover {
+    background-color: #007bff;
+border-color: #007bff;
+color: #fff;
+
+  }
+  .form-group{margin-bottom:1rem}
+  .required{
+    color: red;
+}
+  span.validation_msg{
+    color: #fd021b;
+    margin-top: 10px;
+    font-size: 12px;
+}

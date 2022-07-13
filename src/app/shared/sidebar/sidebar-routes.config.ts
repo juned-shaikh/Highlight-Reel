@@ -10,14 +10,21 @@ export const ROUTES: RouteInfo[] = [
     {
         path: 'users', title: 'Users', icon: 'bx bxs-group', class: 'sub', badge: '', badgeClass: '', isExternalLink: false,
         submenu: [
-            { path: 'user-management', title: 'All Users', icon: 'bx bxs-group', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: 'report-video', title: 'Reported Video', icon: 'bx bxs-group', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: 'user-management', title: 'All Users', icon: 'fadeIn animated bx bx-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: 'report-video', title: 'Reported Video', icon: 'fadeIn animated bx bx-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
         ]
     },
 
     {
-        path: '', title: 'Transitions', icon: 'bx bx-home-circle', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-            { path: 'manage-role', title: 'Manage Role', icon: 'bx bxs-group', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        path: '', title: 'Transitions', icon: 'fadeIn animated bx bx-receipt', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+            { path: 'gif', title: 'Gif', icon: 'fadeIn animated bx bx-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: 'emoji', title: 'Emoji', icon: 'fadeIn animated bx bx-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: 'animation', title: 'Animation', icon: 'fadeIn animated bx bx-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: 'sounds', title: 'Sounds', icon: 'fadeIn animated bx bx-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: 'photo', title: 'Photo', icon: 'fadeIn animated bx bx-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: 'music', title: 'Music', icon: 'fadeIn animated bx bx-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+
+
         ]
     },
 

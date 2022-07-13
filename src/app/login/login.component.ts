@@ -14,12 +14,13 @@ import { ThreeDServiceService } from '../service/three-dservice.service';
 })
 export class LoginComponent implements OnInit {
   res: any;
+  isError: boolean = false;
   declare loginForm: FormGroup;
   constructor(private router: Router, public fb: FormBuilder, private toastr: ToastrService, public authService: AuthService,
     private route: ActivatedRoute, private ThreeDService: ThreeDServiceService, public dialog: MatDialog) { }
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
+      userEmailPhone: ['', Validators.required],
       password: ['', Validators.required],
 
     });
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit {
       this.ThreeDService.show();
       this.authService.login(this.loginForm.value).subscribe(res => {
         this.ThreeDService.hide();
-        if (res.response == 200) {
+        if (res.success == true) {
+          sessionStorage.setItem('authToken', res.token)
           sessionStorage.setItem("adminDetail", JSON.stringify(res.data));
           sessionStorage.setItem("adminId", res.data.adminId);
           this.toastr.success(res.message);
@@ -51,4 +53,34 @@ export class LoginComponent implements OnInit {
       this.loginForm.markAllAsTouched();
     }
   }
+
+
+  // login() {
+  //   if (this.loginForm.valid) {
+  //     this.authService.login(this.loginForm.value).subscribe(
+  //       res => {
+  //         if (res.success == true) {
+           
+  //             localStorage.setItem('authToken', res.token)
+  //             this.router.navigate(['/admin/dashboard'])
+  //             this.toastr.success(res.message);
+  //          console.log(res ,"success");
+           
+  //         }
+  //         else {
+  //           this.toastr.error(res.message);
+  //         }
+  //       },
+  //       err => {
+  //         this.toastr.error('Some Error Occured.')
+  //         console.log(JSON.stringify(err));
+  //       }
+  //     )
+  //   }
+  //   else {
+  //     this.isError = true;
+  //   }
+  // }
+
+
 }

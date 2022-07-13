@@ -17,9 +17,11 @@ const routes: Routes = [
   { path:'admin/reset-password', component: ResetPasswordComponent },
   { path:'admin/verify-user-account', component: VerifyUserAccountComponent },
   { path:'admin', component: FullLayoutComponent,
-  loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-  // children:Full_ROUTES,canActivate:[AuthGuard]
+  // loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+  children:Full_ROUTES,canActivate:[AuthGuard]
  },
+
+
  
 ]
 @NgModule({

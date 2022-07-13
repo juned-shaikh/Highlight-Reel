@@ -17,20 +17,27 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.dashboardCount();
+    const firstTime = localStorage.getItem('key')
+    if(!firstTime){
+      localStorage.setItem('key','loaded')
+     location.reload()
+    }else {
+      localStorage.removeItem('key') 
+    }
   }
   dashboardCount() {
-    this.ThreeDService.show();
-    this.authService.dashboardCount().subscribe(res => {
-      this.ThreeDService.hide();
-      if (res.response == 200) {
-        this.totalUser = res.data.totalUser;
-        this.totalAdmin = res.data.totalAdmin;
-      } else {
-        this.toastr.error(res.message);
-      }
-    }, error => {
-       this.toastr.error('Internal Server Error');
-    })
+    // this.ThreeDService.show();
+  //   this.authService.dashboardCount().subscribe(res => {
+  //     this.ThreeDService.hide();
+  //     if (res.response == 200) {
+  //       this.totalUser = res.data.totalUser;
+  //       this.totalAdmin = res.data.totalAdmin;
+  //     } else {
+  //       this.toastr.error(res.message);
+  //     }
+  //   }, error => {
+  //      this.toastr.error('Internal Server Error');
+  //   })
   }
 
 }

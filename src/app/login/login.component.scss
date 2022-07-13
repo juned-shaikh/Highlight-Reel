@@ -17,8 +17,29 @@ body.bodybg {
 .container {max-width: 1000px; }
 
 /*Sign In Page*/
+html{
+  background-image: url(../../assets/img/aa.png);
+  background-repeat: no-repeat;
+  background-position: 52% 9%;
+  background-size: 60%;
+  background-color: #000;
+}
 
+.backImage img {
+  display: none;
+}
 
+.backImage {
+    float: left;
+    width: 100%;
+    background: #000;
+    position: relative;
+    height: 100vh;
+    background-image: url(../../assets/img/aa.png);
+    background-repeat: no-repeat;
+  background-position: 52% 9%;
+  background-size: 56%;
+}
 
 .midtexts {font-size: 16px; font-weight: 500; color: #000; width: 100%; display: inline-block; line-height: 30px; margin-bottom: 10px; }
 
@@ -51,6 +72,11 @@ body.bodybg {
     margin-top: 20px;
 }
 
+.signupfom{
+  position: relative;
+  z-index: 999999;
+}
+
 .hvr-shutter-in-horizontal.submit:before {background: #FCE101; border: none; border-radius:10px; }
 
 .foottext {font-style: normal; font-weight: normal; font-size: 14px; line-height: 21px; color: #333333; width: 100%; text-align: center; display: inline-block; }
@@ -59,7 +85,7 @@ body.bodybg {
 
 .foottext a:hover {color: #FE8627; }
 
-.middleform {width: 33%; margin: auto; background: #FFFFFF; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); border-radius: 30px; padding: 40px; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); }
+.middleform {width: 33%; margin: auto; background: #FFFFFF; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); border-radius: 30px; padding: 40px; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(15%); }
 
 .signupfom {width: 100%; float: left; margin: auto; }
 
@@ -73,7 +99,7 @@ body.bodybg {
 .high {
     width: 100%;
     float: left;
-    margin: 0px 0 0 0;
+    margin: 30px 0 0 0;
     font-size: 47px;
     color: #D85B00;
     font-weight: 600;

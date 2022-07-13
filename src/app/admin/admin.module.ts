@@ -18,7 +18,22 @@ import { MatTableModule } from '@angular/material/table'
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog'
 import { ChangePasswordPopupComponent } from './change-password-popup/change-password-popup.component';
-import { UserDetailsComponent } from './user-details/user-details.component'
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { StaffComponent } from './staff/staff.component';
+import { AddStaffComponent } from './staff/add-staff/add-staff.component';
+import { GifComponent } from './gif/gif.component';
+import { EmojiComponent } from './emoji/emoji.component';
+import { AnimationComponent } from './animation/animation.component';
+import { SoundComponent } from './sound/sound.component';
+import { PhotosComponent } from './photos/photos.component';
+import { MusicComponent } from './music/music.component'
+import { AddGifComponent } from './gif/add-gif/add-gif.component';
+import { AddEmojiComponent } from './emoji/add-emoji/add-emoji.component';
+import { AddAnimationComponent } from './animation/add-animation/add-animation.component';
+import { AddSoundComponent } from './sound/add-sound/add-sound.component';
+import { AddMusicComponent } from './music/add-music/add-music.component';
+import { AddPhotoComponent } from './photos/add-photo/add-photo.component';
+import { ReportedVideoComponent } from './reported-video/reported-video.component';
 
 @NgModule({
   imports: [
@@ -42,6 +57,21 @@ import { UserDetailsComponent } from './user-details/user-details.component'
     UserManagementComponent,
     ChangePasswordPopupComponent,
     UserDetailsComponent,
+    StaffComponent,
+    AddStaffComponent,
+    GifComponent,
+    AddGifComponent,
+    EmojiComponent,
+    AddEmojiComponent,
+    AnimationComponent,
+    AddAnimationComponent,
+    SoundComponent,
+    AddSoundComponent,
+    PhotosComponent,
+    AddPhotoComponent,
+    MusicComponent,
+    AddMusicComponent,
+    ReportedVideoComponent,
 
   ],
  
